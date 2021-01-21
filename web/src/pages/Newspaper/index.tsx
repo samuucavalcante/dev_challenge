@@ -29,7 +29,8 @@ const Newspaper: React.FC = () => {
             <Form onSubmit={handleSubmit}>
               <h4>Título</h4>
               <Input
-                type="text"
+                isArea={false}
+                // type="text"
                 placeholder="Título"
                 className="form-control"
                 name="title"
@@ -37,6 +38,7 @@ const Newspaper: React.FC = () => {
               <br />
               <h4>Descrição</h4>
               <Input
+                isArea
                 placeholder="Escreva uma descrição"
                 className="form-control"
                 name="description"

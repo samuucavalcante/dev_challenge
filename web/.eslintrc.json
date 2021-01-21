@@ -25,6 +25,7 @@
         "prettier"
     ],
     "rules": {
+        "consistent-return": "off",
         "@typescript-eslint/ban-types": "off",
         "react/prop-types": "off",
         "react/jsx-props-no-spreading": "off",

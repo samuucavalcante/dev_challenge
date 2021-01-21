@@ -1,9 +1,4 @@
-import React, {
-  LinkHTMLAttributes,
-  useCallback,
-  useEffect,
-  useState,
-} from 'react';
+import React, { LinkHTMLAttributes, useState, useEffect } from 'react';
 
 import { Container } from './styles';
 
@@ -11,7 +6,34 @@ import api from '../../services/api';
 
 type CardProps = LinkHTMLAttributes<HTMLLinkElement>;
 
+interface Data {
+  title: string;
+  description: string;
+  createdAt: string;
+}
+
 const Card: React.FC<CardProps> = () => {
+  const [newspaper, setNewspaper] = useState<Data[]>([]);
+
+  useEffect(() => {
+    async function show(): Promise<void> {
+      try {
+        const response = await api.get('/newspaper');
+        if (!response) {
+          return setNewspaper([]);
+        }
+
+        setNewspaper([...response.data]);
+        newspaper.map((a) => {
+          console.log(a.title);
+        });
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    show();
+  }, [newspaper]);
+
   return (
     <>
       <Container>

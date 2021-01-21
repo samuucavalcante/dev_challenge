@@ -1,13 +1,28 @@
-import React, { InputHTMLAttributes, useEffect, useRef } from 'react';
+import React, {
+  InputHTMLAttributes,
+  TextareaHTMLAttributes,
+  useEffect,
+  useRef,
+} from 'react';
 import { useField } from '@unform/core';
 import { Container } from './styles';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string;
   className?: string;
+  isArea: boolean;
 }
 
-const Input: React.FC<InputProps> = ({ name, className = '', ...rest }) => {
+interface TextAreaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
+  isArea: boolean;
+}
+
+const Input: React.FC<InputProps & TextAreaProps> = ({
+  name,
+  className = '',
+  isArea,
+  ...rest
+}) => {
   const inputRef = useRef(null);
   const { fieldName, registerField } = useField(name);
 
@@ -20,9 +35,15 @@ const Input: React.FC<InputProps> = ({ name, className = '', ...rest }) => {
   }, [fieldName, registerField]);
 
   return (
-    <Container>
-      <input {...rest} className={className} ref={inputRef} />
-    </Container>
+    <>
+      {isArea ? (
+        <Container>
+          <textarea {...rest} className={className} ref={inputRef} />
+        </Container>
+      ) : (
+        <input {...rest} className={className} ref={inputRef} />
+      )}
+    </>
   );
 };
 
