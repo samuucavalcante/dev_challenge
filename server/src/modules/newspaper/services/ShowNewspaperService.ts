@@ -1,7 +1,7 @@
 import { injectable, inject } from 'tsyringe';
 
 import INewspaperRepository from '../repositories/INewspaperRepository';
-import INewspaper from '../models/INewspaper';
+import Newspaper from '../infra/typeorm/entities/Newspaper';
 
 @injectable()
 class ShowNewspaperService {
@@ -10,7 +10,7 @@ class ShowNewspaperService {
     private newspaperRepository: INewspaperRepository,
   ) {}
 
-  public async execute(): Promise<INewspaper[]> {
+  public async execute(): Promise<Newspaper[]> {
     const response = await this.newspaperRepository.listAllNewsPapper();
 
     return response;

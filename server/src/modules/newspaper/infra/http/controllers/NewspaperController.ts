@@ -4,7 +4,10 @@ import CreateNewspaperService from '@modules/newspaper/services/CreateNewspaperS
 import ShowNewspaperService from '@modules/newspaper/services/ShowNewspaperService';
 
 class postControllerCreate {
-  public async create(request: Request, response: Response): Promise<Response> {
+  public async create(
+    request: Request,
+    response: Response,
+  ): Promise<Response | undefined> {
     try {
       const { title, description } = request.body;
 
@@ -16,7 +19,7 @@ class postControllerCreate {
       });
       return response.json(newspaper);
     } catch (err) {
-      return response.status(400).json({ error: err.message });
+      return response.status(400).json({ err: err.message });
     }
   }
 
@@ -25,7 +28,7 @@ class postControllerCreate {
       const listAllNewspaper = container.resolve(ShowNewspaperService);
 
       const arrayListAllNewspaper = await listAllNewspaper.execute();
-      return response.json(arrayListAllNewspaper);
+      return response.setTimeout(40000).json(arrayListAllNewspaper);
     } catch (err) {
       return response.status(400).json({ error: err.message });
     }

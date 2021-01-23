@@ -1,6 +1,6 @@
 import { injectable, inject } from 'tsyringe';
 
-import INewspaper from '../models/INewspaper';
+import Newspaper from '../infra/typeorm/entities/Newspaper';
 import INewspaperRepository from '../repositories/INewspaperRepository';
 
 interface IRequest {
@@ -15,7 +15,7 @@ class CreateNewspaperService {
     private newspaperRepository: INewspaperRepository,
   ) {}
 
-  public async create({ title, description }: IRequest): Promise<INewspaper> {
+  public async create({ title, description }: IRequest): Promise<Newspaper> {
     const newspaper = await this.newspaperRepository.create({
       title,
       description,

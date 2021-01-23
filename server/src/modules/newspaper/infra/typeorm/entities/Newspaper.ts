@@ -17,10 +17,10 @@ class Newspaper {
   @Column()
   description: string;
 
-  @CreateDateColumn()
+  @CreateDateColumn({ type: 'date' })
   created_at: Date;
 
-  @UpdateDateColumn()
+  @UpdateDateColumn({ type: 'date' })
   update_at: Date;
 }
 

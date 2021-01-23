@@ -1,8 +1,8 @@
 import ICreateNewspaperDTO from '../dtos/ICreateNewspaperDTO';
 
-import INewspaper from '../models/INewspaper';
+import Newspaper from '../infra/typeorm/entities/Newspaper';
 
 export default interface INewspaperRepository {
-  create(data: ICreateNewspaperDTO): Promise<INewspaper>;
-  listAllNewsPapper(): Promise<INewspaper[]>;
+  create(data: ICreateNewspaperDTO): Promise<Newspaper>;
+  listAllNewsPapper(): Promise<Newspaper[]>;
 }
