@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-import { shade } from 'polished';
-
 export const Container = styled.li`
   font-family: system-ui;
   display: flex;
@@ -24,7 +22,7 @@ export const Container = styled.li`
     max-width: 600px;
   }
 
-  background-color: #fff;
+  background-color: #eaeaea;
   border-radius: 3px;
   margin-top: 10px;
   margin-left: 10px;
@@ -44,11 +42,14 @@ export const Container = styled.li`
     }
 
     > div {
-      padding: 6px;
+      /* background-color: gray; */
+      flex: 1;
+      padding: 10px;
       display: flex;
       height: 100px;
       flex-direction: column;
       h3 {
+        font-size: 24px;
         color: rgba(0, 0, 0, 0.8);
         display: block;
         font-weight: 600;
@@ -62,7 +63,6 @@ export const Container = styled.li`
         color: black;
         margin-top: 10px;
         font-size: 14px;
-        text-align: justify;
       }
     }
   }
