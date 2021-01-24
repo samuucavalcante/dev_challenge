@@ -61,8 +61,4 @@ export const Section = styled.ul`
   } */
 `;
 
-export const Footer = styled.div`
-  width: 100%;
-  height: max-content;
-  background-color: #282a36;
-`;
+export const Footer = styled.div``;

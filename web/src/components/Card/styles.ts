@@ -24,10 +24,10 @@ export const Container = styled.li`
 
   background-color: #eaeaea;
   border-radius: 3px;
-  margin-top: 10px;
+  margin-top: 30px;
   margin-left: 10px;
   & + li {
-    margin-top: 10px;
+    margin-top: 30px;
     margin-left: 10px;
   }
 
@@ -43,25 +43,28 @@ export const Container = styled.li`
 
     > div {
       /* background-color: gray; */
-      flex: 1;
       padding: 10px;
+      width: 100%;
+      max-width: 280px;
       display: flex;
       height: 100px;
       flex-direction: column;
+      word-wrap: break-word;
       h3 {
-        font-size: 24px;
-        color: rgba(0, 0, 0, 0.8);
+        font-size: 20px;
         display: block;
+        color: rgba(0, 0, 0, 0.8);
         font-weight: 600;
       }
       strong {
-        color: gray;
         display: block;
+
+        color: gray;
         font-size: 11px;
       }
       p {
         color: black;
-        margin-top: 10px;
+        margin-top: 8px;
         font-size: 14px;
       }
     }

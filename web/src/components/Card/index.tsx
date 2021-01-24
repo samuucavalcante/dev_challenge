@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import moment from 'moment';
+import { Link } from 'react-router-dom';
 import { Container } from './styles';
 
 // type CardProps = LinkHTMLAttributes<HTMLLinkElement>;
@@ -12,18 +13,16 @@ export interface PropsNewspaper {
   created_at: string;
 }
 
-// interface Data {
-//   title: string;
-//   description: string;
-//   createdAt: string;
-//   algo: PropsNewspaper;
-// }
-
-const Card: React.FC<PropsNewspaper> = ({ title, description, created_at }) => {
+const Card: React.FC<PropsNewspaper> = ({
+  id,
+  title,
+  description,
+  created_at,
+}) => {
   return (
     <>
       <Container>
-        <a href="/asad">
+        <Link to={`/newspaper/${id}`}>
           <img
             src="https://image.freepik.com/vetores-gratis/logotipo-de-jornal_10250-2354.jpg"
             alt="Newspaper"
@@ -33,7 +32,7 @@ const Card: React.FC<PropsNewspaper> = ({ title, description, created_at }) => {
             <strong>{created_at}</strong>
             <p>{description}</p>
           </div>
-        </a>
+        </Link>
       </Container>
     </>
   );
