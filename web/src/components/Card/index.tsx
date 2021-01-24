@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
-import moment from 'moment';
+import { Card as CardBootstrap, Button } from 'react-bootstrap';
+
 import { Link } from 'react-router-dom';
 import { Container } from './styles';
 
@@ -22,17 +23,20 @@ const Card: React.FC<PropsNewspaper> = ({
   return (
     <>
       <Container>
-        <Link to={`/newspaper/${id}`}>
-          <img
+        <CardBootstrap style={{ width: '100%' }}>
+          <CardBootstrap.Img
+            variant="top"
             src="https://image.freepik.com/vetores-gratis/logotipo-de-jornal_10250-2354.jpg"
-            alt="Newspaper"
           />
-          <div>
-            <h3>{title}</h3>
-            <strong>{created_at}</strong>
-            <p>{description}</p>
-          </div>
-        </Link>
+          <CardBootstrap.Body style={{ width: '100%' }}>
+            <CardBootstrap.Title>Card Title</CardBootstrap.Title>
+            <CardBootstrap.Text>
+              Some quick example text to build on the card title and make up the
+              bulk of the cards content.
+            </CardBootstrap.Text>
+            <Button variant="primary">Go somewhere</Button>
+          </CardBootstrap.Body>
+        </CardBootstrap>
       </Container>
     </>
   );

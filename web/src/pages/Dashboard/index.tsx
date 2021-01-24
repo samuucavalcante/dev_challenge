@@ -33,11 +33,11 @@ const Dashboard: React.FC = () => {
   return (
     <>
       <Container className="container-fluid">
-        <Header>
+        <Header className="container">
           <h1>Classificados</h1>
           <Link to="/newspaper/create">+ Novo classificado</Link>
         </Header>
-        <Section>
+        <Section className="container-fluid">
           {newspaper ? (
             newspaper.map((newsp) => (
               <>

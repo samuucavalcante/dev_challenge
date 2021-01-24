@@ -9,6 +9,7 @@ export default createGlobalStyle`
   }
 
   html {
+    padding: 2% 5%;
     ::-webkit-scrollbar {
     width: 7px;
     height: 7px;
@@ -35,7 +36,6 @@ export default createGlobalStyle`
     /* background: #312e38; */
     /* color: #fff; */
     -webkit-font-smoothing: antialiased;
-     /* margin: 2% 5%;   */
 
   }
 

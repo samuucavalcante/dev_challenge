@@ -2,11 +2,11 @@ import styled from 'styled-components';
 import { shade } from 'polished';
 
 export const Container = styled.div`
-  width: 100%;
+  /* width: 100%;
   padding: 2% 5%;
   h1 {
     margin-left: 17px;
-  }
+  } */
 `;
 
 export const Header = styled.div`
@@ -54,7 +54,7 @@ export const Section = styled.ul`
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: flex-start;
 
   /* @media (max-width: 800px) {
     justify-content: space-around;

@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 
+import { Form, Button } from 'react-bootstrap';
+
 import { useRouteMatch } from 'react-router-dom';
-import { Form } from '@unform/web';
+// import { Form } from '@unform/web';
 import { Container } from './styles';
 
 import api from '../../services/api';
@@ -32,47 +34,26 @@ const Newspapers: React.FC = () => {
   }, [params.id]);
 
   return (
-    <Container className="container">
-      <a href="/" className="text-primary">
-        Voltar
-      </a>
-      <br />
-      <br />
-      {newspaper?.map((newsp) => (
-        <>
-          <h1 className="text-lg-left " style={{ fontSize: '45px' }}>
-            {newsp.title}
-          </h1>
-          <p className="text-muted text-sm">{newsp.description}</p>
-        </>
-      ))}
-      <br />
-      <br />
-      <Form
-        onSubmit={() => {
-          console.log('');
-        }}
-      >
-        <hr />
-        <br />
-        <h3 className="text-secundary">Coment</h3>
-        <br />
-        <textarea
-          placeholder="Digite sua comentário"
-          className="form-control text-muted"
-          name="corpo"
-        />
-        <br />
-        <button className="btn btn-primary" type="submit">
-          Responder
-        </button>
-        <input type="hidden" name="pergunta" value="<%= pergunta.id %>" />
-      </Form>
-      <br />
-      <div className="card">
-        <div className="card-body">{/* <p>Respostas aqui</p> */}</div>
-      </div>
-    </Container>
+    <Form>
+      <Form.Group controlId="formBasicEmail">
+        <Form.Label>Email address</Form.Label>
+        <Form.Control type="email" placeholder="Enter email" />
+        <Form.Text className="text-muted">
+          Well never share your email with anyone else.
+        </Form.Text>
+      </Form.Group>
+
+      <Form.Group controlId="formBasicPassword">
+        <Form.Label>Password</Form.Label>
+        <Form.Control type="password" placeholder="Password" />
+      </Form.Group>
+      <Form.Group controlId="formBasicCheckbox">
+        <Form.Check type="checkbox" label="Check me out" />
+      </Form.Group>
+      <Button variant="primary" type="submit">
+        Submit
+      </Button>
+    </Form>
   );
 };
 
