@@ -30,6 +30,12 @@ class NewspaperRepository implements INewspaperRepository {
 
     return listAllNewspaper;
   }
+
+  public async findById(id: string): Promise<Newspaper | undefined> {
+    const newspaperId = this.ormRepository.findOne({ where: { id } });
+
+    return newspaperId;
+  }
 }
 
 export default NewspaperRepository;

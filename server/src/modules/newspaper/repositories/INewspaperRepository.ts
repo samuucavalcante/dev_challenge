@@ -5,4 +5,5 @@ import Newspaper from '../infra/typeorm/entities/Newspaper';
 export default interface INewspaperRepository {
   create(data: ICreateNewspaperDTO): Promise<Newspaper>;
   listAllNewsPapper(): Promise<Newspaper[]>;
+  findById(id: string): Promise<Newspaper | undefined>;
 }
