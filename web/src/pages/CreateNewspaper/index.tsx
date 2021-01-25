@@ -65,14 +65,13 @@ const CreateNewspaper: React.FC = () => {
               <br />
               <h4>Descrição</h4>
               <Input
-                isArea
                 onChange={(e: any) => setInputArea(e.target.value)}
+                isArea
                 placeholder="Escreva uma descrição"
                 className="form-control"
                 name="description"
               />
               {errorArea && <Error>{errorArea}</Error>}
-              <br />
               <br />
               <button type="submit" className="btn btn-success">
                 Perguntar

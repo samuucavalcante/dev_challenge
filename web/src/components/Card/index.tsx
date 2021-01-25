@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import { Card as CardBootstrap, Button } from 'react-bootstrap';
+import { Card as CardBootstrap } from 'react-bootstrap';
 
-import { Link } from 'react-router-dom';
 import { Container } from './styles';
 
 // type CardProps = LinkHTMLAttributes<HTMLLinkElement>;
@@ -22,19 +21,23 @@ const Card: React.FC<PropsNewspaper> = ({
 }) => {
   return (
     <>
-      <Container>
-        <CardBootstrap style={{ width: '100%' }}>
-          <CardBootstrap.Img
-            variant="top"
-            src="https://image.freepik.com/vetores-gratis/logotipo-de-jornal_10250-2354.jpg"
-          />
+      <Container
+        key={id}
+        to={`/newspaper/${id}`}
+        style={{ textDecoration: 'none' }}
+      >
+        <CardBootstrap
+          key={id}
+          bg="info"
+          text="white"
+          style={{ width: '100%' }}
+        >
+          <CardBootstrap.Header style={{ fontSize: '16px' }}>
+            {created_at}
+          </CardBootstrap.Header>
           <CardBootstrap.Body style={{ width: '100%' }}>
-            <CardBootstrap.Title>Card Title</CardBootstrap.Title>
-            <CardBootstrap.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the cards content.
-            </CardBootstrap.Text>
-            <Button variant="primary">Go somewhere</Button>
+            <CardBootstrap.Title>{title}</CardBootstrap.Title>
+            <CardBootstrap.Text>{description}</CardBootstrap.Text>
           </CardBootstrap.Body>
         </CardBootstrap>
       </Container>

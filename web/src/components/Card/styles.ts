@@ -1,6 +1,8 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-export const Container = styled.div`
+export const Container = styled(Link)`
+  text-decoration: none;
   font-family: system-ui;
   display: flex;
   flex-wrap: wrap;
@@ -23,10 +25,10 @@ export const Container = styled.div`
 
   background-color: #eaeaea;
   border-radius: 3px;
-  margin-top: 30px;
+  margin-bottom: 30px;
   margin-left: 10px;
   & + div {
-    margin-top: 30px;
+    margin-bottom: 30px;
     margin-left: 10px;
   }
 `;

@@ -2,24 +2,24 @@ import styled from 'styled-components';
 import { shade } from 'polished';
 
 export const Container = styled.div`
-  /* width: 100%;
-  padding: 2% 5%;
+  width: 100%;
+  /* padding: 2% 5%;
   h1 {
     margin-left: 17px;
-  } */
+  }  */
 `;
 
 export const Header = styled.div`
+  text-align: center;
   /* background-color: #282a36; */
   display: flex;
   /* flex: 1; */
+  width: 100%;
   justify-content: space-between;
   align-items: center;
-  margin: 0 15px;
+  /* margin: 0 15px; */
   margin-bottom: 20px;
-  @media (max-width: 1000px) {
-    margin: 0 40px;
-  }
+
   h1 {
     font-size: 32px;
     /* color: white; */
@@ -42,6 +42,7 @@ export const Header = styled.div`
   }
   @media (max-width: 814px) {
     flex-direction: column;
+    justify-content: center;
     a {
       margin-top: 10px;
       padding: 10px;
@@ -50,15 +51,34 @@ export const Header = styled.div`
   }
 `;
 
-export const Section = styled.ul`
+export const Section = styled.div`
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-
   /* @media (max-width: 800px) {
     justify-content: space-around;
   } */
 `;
 
 export const Footer = styled.div``;
+export const Nothing = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 50vh;
+  > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    svg {
+      color: gray;
+    }
+    h3 {
+      color: gray;
+    }
+  }
+`;
