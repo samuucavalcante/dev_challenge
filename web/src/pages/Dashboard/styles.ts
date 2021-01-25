@@ -10,7 +10,7 @@ export const Container = styled.div`
 `;
 
 export const Header = styled.div`
-  padding: 10px;
+  /* padding: 10px 50px; */
   text-align: center;
   /* background-color: #282a36; */
   display: flex;

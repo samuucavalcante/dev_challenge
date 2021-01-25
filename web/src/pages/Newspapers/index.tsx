@@ -69,13 +69,15 @@ const Newspapers: React.FC = () => {
             }}
           >
             <Card>
-              <Card.Header className="bg-primary">
+              <Card.Header className="bg-dark">
                 <Card.Title className="text-light">Comente:</Card.Title>
               </Card.Header>
               <Card.Footer className="bg-light">
                 <Input isArea className="form-control" name="answer" />
                 <br />
-                <Button type="submit">Comentar</Button>
+                <Button type="submit" className="btn btn-outline-dark">
+                  Comentar
+                </Button>
               </Card.Footer>
             </Card>
           </Form>

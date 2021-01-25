@@ -35,7 +35,7 @@ const Card: React.FC<PropsNewspaper> = ({
           style={{ width: '100%' }}
         >
           <CardBootstrap.Header
-            className="d-flex justify-content-between"
+            className="d-flex justify-content-between bg-light text-danger"
             style={{ fontSize: '16px' }}
           >
             {created_at}
@@ -43,7 +43,9 @@ const Card: React.FC<PropsNewspaper> = ({
           </CardBootstrap.Header>
           <CardBootstrap.Body style={{ width: '100%' }}>
             <CardBootstrap.Title>{title}</CardBootstrap.Title>
-            <CardBootstrap.Text>{description}</CardBootstrap.Text>
+            <CardBootstrap.Text style={{ opacity: '0.8', fontSize: '14px' }}>
+              {description}
+            </CardBootstrap.Text>
           </CardBootstrap.Body>
         </CardBootstrap>
       </Container>

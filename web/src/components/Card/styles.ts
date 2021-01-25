@@ -1,13 +1,15 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+import { shade } from 'polished';
+
 export const Container = styled(Link)`
   text-decoration: none;
   font-family: system-ui;
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  max-width: 280px;
+  max-width: 48%;
   box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);
   border: 0;
   transition: transform 0.1s;
@@ -16,12 +18,16 @@ export const Container = styled(Link)`
     box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.3);
   }
 
-  @media (max-width: 1000px) {
-    max-width: 350px;
+  @media (max-width: 1200px) {
+    max-width: 1200px;
   }
-  @media (max-width: 814px) {
-    max-width: 600px;
-  }
+  /* @media (max-width: 1435px) {
+    max-width: 1200px;
+  } */
+
+  /* @media (max-width: 1111px) {
+    max-width: 1200px;
+  } */
 
   background-color: #eaeaea;
   border-radius: 3px;

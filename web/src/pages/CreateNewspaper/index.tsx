@@ -82,7 +82,7 @@ const CreateNewspaper: React.FC = () => {
               />
               {errorArea && <Error>{errorArea}</Error>}
               <br />
-              <button type="submit" className="btn btn-success">
+              <button type="submit" className="btn btn-outline-success">
                 Perguntar
               </button>
             </Form>
