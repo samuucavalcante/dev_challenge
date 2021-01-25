@@ -62,3 +62,22 @@ export const Section = styled.ul`
 `;
 
 export const Footer = styled.div``;
+export const Nothing = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 50vh;
+  > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    svg {
+      color: gray;
+    }
+    h3 {
+      color: gray;
+    }
+  }
+`;

@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 
-import { BoxLoading } from 'react-loading-typescript';
+import { CgSmileSad } from 'react-icons/cg';
+
 import { Link } from 'react-router-dom';
-import { Container, Header, Section, Footer } from './styles';
+import { Container, Header, Section, Footer, Nothing } from './styles';
 
 import Card, { PropsNewspaper } from '../../components/Card';
 
@@ -10,26 +11,36 @@ import api from '../../services/api';
 
 const Dashboard: React.FC = () => {
   const [newspaper, setNewspaper] = useState<PropsNewspaper[]>([]);
+  const [isNothing, setIsNothing] = useState(false);
+  const apiRequest = useCallback(async (): Promise<void> => {
+    const { data } = await api.get('/newspaper');
+    data.reverse();
+
+    if (!data) {
+      setNewspaper([]);
+    }
+
+    setNewspaper(data);
+  }, []);
 
   useEffect(() => {
-    async function show(): Promise<void> {
-      try {
-        const response = await api.get('/newspaper');
-        if (!response) {
-          setNewspaper([]);
-          return;
-        }
-
-        const resData = response.data.reverse();
-
-        setNewspaper([...resData]);
-      } catch (err) {
-        console.log(err);
+    try {
+      setIsNothing(false);
+      if (newspaper.length === 0) {
+        setIsNothing(true);
       }
-    }
-    show();
-  }, [newspaper]);
 
+      if (
+        newspaper.length > 0 &&
+        document.location.href === 'http://localhost:3000/'
+      ) {
+        document.title = `(${newspaper.length}) Newspaper - Breaking News, BR News, World News and Videos`;
+      }
+      apiRequest();
+    } catch (err) {
+      console.log(err);
+    }
+  }, [newspaper, apiRequest]);
   return (
     <>
       <Container className="container-fluid">
@@ -38,7 +49,7 @@ const Dashboard: React.FC = () => {
           <Link to="/newspaper/create">+ Novo classificado</Link>
         </Header>
         <Section>
-          {newspaper ? (
+          {newspaper &&
             newspaper.map((newsp) => (
               <>
                 <Card
@@ -49,20 +60,14 @@ const Dashboard: React.FC = () => {
                   created_at={newsp.created_at}
                 />
               </>
-            ))
-          ) : (
-            <BoxLoading
-              speed={0}
-              color="gray"
-              size="large"
-              style={{
-                position: 'absolute',
-                top: '50%',
-                bottom: '-50%',
-                left: '50%',
-                right: '50%',
-              }}
-            />
+            ))}
+          {isNothing && (
+            <Nothing>
+              <div>
+                <CgSmileSad size={40} />
+                <h3>No content yet</h3>
+              </div>
+            </Nothing>
           )}
         </Section>
         <Footer />

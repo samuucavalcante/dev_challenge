@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 
 import { useRouteMatch } from 'react-router-dom';
 import { Form } from '@unform/web';
@@ -25,11 +25,14 @@ const Newspapers: React.FC = () => {
 
   const { params } = useRouteMatch<Params>();
 
-  useEffect(() => {
-    api.get(`/newspaper/${params.id}`).then((response) => {
-      setNewspaper([response.data]);
-    });
+  const apiRequest = useCallback(async () => {
+    const { data } = await api.get(`/newspaper/${params.id}`);
+    setNewspaper([data]);
   }, [params.id]);
+
+  useEffect(() => {
+    apiRequest();
+  }, [apiRequest]);
 
   return (
     <Container className="container">
