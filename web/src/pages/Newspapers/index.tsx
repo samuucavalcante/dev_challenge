@@ -1,13 +1,15 @@
 import React, { useCallback, useEffect, useState } from 'react';
 
-import { Card } from 'react-bootstrap';
+import { Card, Button } from 'react-bootstrap';
 
-import { useRouteMatch } from 'react-router-dom';
+import { Form } from '@unform/web';
+
+import { useRouteMatch, Link } from 'react-router-dom';
 import { Container } from './styles';
 
 import api from '../../services/api';
 
-// import Input from '../../components/Input';
+import Input from '../../components/Input';
 
 interface Params {
   id: string;
@@ -39,18 +41,44 @@ const Newspapers: React.FC = () => {
     <>
       {newspaper?.map((newsp) => (
         <Container key={newsp.id} className="container-fluid">
+          <Link to="/" className="text-primary">
+            Voltar
+          </Link>
+          <br />
+          <br />
           <Card>
-            <Card.Header>
-              <Card.Title style={{ fontSize: '30px' }}>
+            <Card.Header className="bg-danger">
+              <Card.Title
+                className="text-light d-flex justify-content-between  align-items-center"
+                style={{ fontSize: '30px' }}
+              >
                 {newsp.title}
+                <span style={{ fontSize: '18px' }}>
+                  Atualizado em {newsp.created_at}
+                </span>
               </Card.Title>
             </Card.Header>
-            <Card.Body>
+            <Card.Body className="bg-white">
               <Card.Text>{newsp.description}</Card.Text>
             </Card.Body>
-            <br />
           </Card>
-          <h1 style={{ fontSize: '24px' }}>Comente:</h1>
+          <br />
+          <Form
+            onSubmit={() => {
+              console.log('');
+            }}
+          >
+            <Card>
+              <Card.Header className="bg-primary">
+                <Card.Title className="text-light">Comente:</Card.Title>
+              </Card.Header>
+              <Card.Footer className="bg-light">
+                <Input isArea className="form-control" name="answer" />
+                <br />
+                <Button type="submit">Comentar</Button>
+              </Card.Footer>
+            </Card>
+          </Form>
         </Container>
       ))}
     </>

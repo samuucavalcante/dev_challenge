@@ -46,7 +46,7 @@ const Dashboard: React.FC = () => {
   return (
     <>
       <Container className="container-fluid">
-        <Header className="container">
+        <Header className="container ">
           <h1>Classificados</h1>
           <Link to="/newspaper/create">+ Novo classificado</Link>
         </Header>

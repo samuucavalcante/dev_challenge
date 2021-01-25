@@ -10,6 +10,7 @@ export const Container = styled.div`
 `;
 
 export const Header = styled.div`
+  padding: 10px;
   text-align: center;
   /* background-color: #282a36; */
   display: flex;
@@ -22,7 +23,6 @@ export const Header = styled.div`
 
   h1 {
     font-size: 32px;
-    /* color: white; */
   }
 
   a {
@@ -73,7 +73,6 @@ export const Nothing = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
     svg {
       color: gray;
     }

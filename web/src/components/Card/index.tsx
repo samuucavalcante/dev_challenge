@@ -2,6 +2,8 @@ import React from 'react';
 
 import { Card as CardBootstrap } from 'react-bootstrap';
 
+import { AiFillPushpin } from 'react-icons/ai';
+
 import { Container } from './styles';
 
 // type CardProps = LinkHTMLAttributes<HTMLLinkElement>;
@@ -28,12 +30,16 @@ const Card: React.FC<PropsNewspaper> = ({
       >
         <CardBootstrap
           key={id}
-          bg="info"
+          bg="danger"
           text="white"
           style={{ width: '100%' }}
         >
-          <CardBootstrap.Header style={{ fontSize: '16px' }}>
+          <CardBootstrap.Header
+            className="d-flex justify-content-between"
+            style={{ fontSize: '16px' }}
+          >
             {created_at}
+            <AiFillPushpin />
           </CardBootstrap.Header>
           <CardBootstrap.Body style={{ width: '100%' }}>
             <CardBootstrap.Title>{title}</CardBootstrap.Title>

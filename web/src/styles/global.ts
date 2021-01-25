@@ -34,7 +34,7 @@ export default createGlobalStyle`
   body {
     padding: 2% 5%;
 
-    /* background: #312e38; */
+    background: #fff;
     /* color: #fff; */
     -webkit-font-smoothing: antialiased;
 

@@ -21,11 +21,20 @@ const CreateNewspaper: React.FC = () => {
         setError('');
         setErrorArea('');
 
-        if (input.length < 7) {
-          setError('Escreva pelo menos 7 caracteres.');
+        if (input.length < 7 || input.length > 30) {
+          setError(
+            `Um título deve estar entre 7-30 caracteres. Quantidade de caracteres atual: ${input.length}`,
+          );
+          return;
         }
-        if (inputArea.length < 20) {
-          setErrorArea('Escreva pelo menos 20 caracteres.');
+        // if (input.length > 30) {
+        //   setError('Tente escrever um título menor (max: 30 caracteres)');
+        //   return;
+        // }
+        if (inputArea.length < 20 || inputArea.length > 120) {
+          setErrorArea(
+            `Uma descrição deve estar entre 20-200 caracteres. Quantidade de caracteres atual: ${inputArea.length}`,
+          );
           return;
         }
         await api.post('/newspaper', data);
