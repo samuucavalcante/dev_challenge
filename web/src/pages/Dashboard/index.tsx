@@ -35,7 +35,7 @@ const Dashboard: React.FC = () => {
         newspaper.length > 0 &&
         document.location.href === 'http://localhost:3000/'
       ) {
-        document.title = `(${newspaper.length}) Newspaper - Breaking News, BR News, World News and Videos`;
+        document.title = `(${newspaper.length}) Newspaper - Breaking News, BR News, World News`;
       }
       apiRequest();
     } catch (err) {

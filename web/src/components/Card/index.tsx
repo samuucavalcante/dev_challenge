@@ -30,12 +30,12 @@ const Card: React.FC<PropsNewspaper> = ({
       >
         <CardBootstrap
           key={id}
-          bg="danger"
+          bg="primary"
           text="white"
           style={{ width: '100%' }}
         >
           <CardBootstrap.Header
-            className="d-flex justify-content-between bg-light text-danger"
+            className="d-flex justify-content-between bg-light text-dark"
             style={{ fontSize: '16px' }}
           >
             {created_at}

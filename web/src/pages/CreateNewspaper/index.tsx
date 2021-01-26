@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Form } from '@unform/web';
 import { Link, useHistory } from 'react-router-dom';
 import { Container, Error } from './styles';
@@ -15,25 +15,25 @@ const CreateNewspaper: React.FC = () => {
 
   const history = useHistory();
 
+  useEffect(() => {
+    document.title = 'Create | Newspaper';
+  }, []);
   const handleSubmit = useCallback(
     async (data: object) => {
       try {
         setError('');
         setErrorArea('');
 
-        if (input.length < 7 || input.length > 30) {
+        if (input.length < 7 || input.length > 70) {
           setError(
-            `Um título deve estar entre 7-30 caracteres. Quantidade de caracteres atual: ${input.length}`,
+            `Um título deve conter entre 7-70 caracteres. Quantidade de caracteres atual: ${input.length}`,
           );
           return;
         }
-        // if (input.length > 30) {
-        //   setError('Tente escrever um título menor (max: 30 caracteres)');
-        //   return;
-        // }
-        if (inputArea.length < 20 || inputArea.length > 120) {
+
+        if (inputArea.length < 20 || inputArea.length > 500) {
           setErrorArea(
-            `Uma descrição deve estar entre 20-200 caracteres. Quantidade de caracteres atual: ${inputArea.length}`,
+            `Uma descrição deve contaer entre 20-500 caracteres. Quantidade de caracteres atual: ${inputArea.length}`,
           );
           return;
         }

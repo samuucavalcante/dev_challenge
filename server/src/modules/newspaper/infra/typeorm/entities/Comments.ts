@@ -1,18 +1,15 @@
 import {
   Entity,
   Column,
-  PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
+  PrimaryColumn,
 } from 'typeorm';
 
-@Entity('newspaper')
-class Newspaper {
-  @PrimaryGeneratedColumn('uuid')
+@Entity('comments')
+class Comments {
+  @PrimaryColumn()
   id: string;
-
-  @Column()
-  title: string;
 
   @Column()
   description: string;
@@ -24,4 +21,4 @@ class Newspaper {
   update_at: Date;
 }
 
-export default Newspaper;
+export default Comments;

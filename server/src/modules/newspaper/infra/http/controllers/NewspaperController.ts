@@ -32,7 +32,7 @@ class postControllerCreate {
       const listAllNewspaper = container.resolve(ShowNewspaperService);
 
       const arrayListAllNewspaper = await listAllNewspaper.execute();
-      return response.setTimeout(40000).json(arrayListAllNewspaper);
+      return response.json(arrayListAllNewspaper);
     } catch (err) {
       return response.status(400).json({ error: err.message });
     }
@@ -44,7 +44,6 @@ class postControllerCreate {
   ): Promise<Response> {
     try {
       const { id } = request.params;
-      console.log(id);
       const showNewspaperByIdService = container.resolve(
         ShowNewspaperByIdService,
       );
