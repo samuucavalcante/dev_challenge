@@ -8,9 +8,9 @@ import api from '../../services/api';
 import Input from '../../components/Input';
 
 const CreateNewspaper: React.FC = () => {
-  const [errorArea, setErrorArea] = useState('');
+  const [errorArea, setErrorArea] = useState(''); 
   const [error, setError] = useState('');
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState(''); 
   const [inputArea, setInputArea] = useState('');
 
   const history = useHistory();
